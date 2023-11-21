@@ -1,13 +1,13 @@
 import React from 'react';
 
 
-const Experience = () => {
+const ArchivePage = () => {
     return (
         <div>
-            Experience page
+            Archieve page
         </div>
     );
 };
 
 
-export default Experience;
+export default ArchivePage;

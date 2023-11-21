@@ -1,15 +1,15 @@
 import React from 'react';
-import { Container } from '../components/index';
+import { Container, Home } from '../components/index';
 
-const Home = () => {
+const HomePage = () => {
     return (
         <Container>
             {/* This page will contain only the display portion so it will not have component, all work done in 
             pages */}
-            <h1>Home page</h1>
+            <Home />
         </Container>
     );
 };
 
 
-export default Home;
+export default HomePage;

@@ -1,13 +1,14 @@
 import React from 'react';
-
+import { Fire } from '../components/index'
 
 const Projects = () => {
     return (
         <div>
-            Project page
+            <Fire />
         </div>
     );
 };
+
 
 
 export default Projects;

@@ -1,15 +1,18 @@
 import React,{ useState } from 'react'
 import { Header } from "../src/components/index"
-import Home from './pages/Home'
+import { ArchivePage, ExperiencePage, HomePage, ProjectsPage } from '../src/pages/index'
+import { Outlet } from 'react-router-dom'
+import './App.css'
 function App() {
   
 
   return (
-      <div className='flex'>
-          <Header />
-          <div className='p-7 text-2xl font-semibold flex-1 h-screen'>
-                <Home />
-                
+      <div className='flex flex-row h-screen overflow-hidden'>
+          <Header/>
+          <div className='text-2xl font-semibold flex-1 h-screen'>
+            <main>
+              <Outlet />
+            </main>
           </div>
       </div>
   )

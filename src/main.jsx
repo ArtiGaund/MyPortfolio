@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { Home, Archive, Experience, Projects } from "./pages/index.js"
+import { HomePage, ArchivePage, ExperiencePage, ProjectsPage, LoginPage } from "./pages/index.js"
 import { Provider } from 'react-redux'
 import store from '../src/store/store.js'
 
@@ -14,20 +14,24 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />
+        element: <HomePage />
       },
       {
         path: "/experience",
-        element: <Experience />
+        element: <ExperiencePage />
       },
       {
         path: "/projects",
-        element: <Projects />
+        element: <ProjectsPage />
       },
       {
         path: "/archive",
-        element: <Archive />
-      }
+        element: <ArchivePage />
+      },
+     {
+        path: "/login",
+        element: <LoginPage />
+    },
     ]
   }
 ])

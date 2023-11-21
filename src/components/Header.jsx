@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 // todo: have to change icon image
 import {
     HomeModernIcon,
@@ -11,6 +15,7 @@ import {
 
 const Header = () => {
     //for menu bar size
+    const navigate = useNavigate();
     const [ open, setOpen ] = useState(true);
     const Menus = [
         {
@@ -35,7 +40,7 @@ const Header = () => {
         },
     ]
     return (
-            <div className={`${open ? 'w-72' : 'w-20' } duration-300 h-screen p-5 pt-8 bg-blue-950 relative`}>
+            <div className={`${open ? 'w-72' : 'w-20' } duration-300 h-screen p-5 pt-8 bg-blue-950 relative z-10`}>
                 <ArrowLeftCircleIcon
                 className={`absolute cursor-pointer rounded-full -right-3 top-9 w-7 border-2 text-black bg-white
                 ${!open && "rotate-180"}`}
@@ -60,7 +65,7 @@ const Header = () => {
                             ${Menu.gap ? "mt-9" : "mt-2"} ${
                                 index === 0 && "bg-blue-900"
                             } `}
-                            
+                            onClick={() => navigate(Menu.location)}
                             >
                                 <div>{Menu.icon}</div>
                                 <span 
@@ -80,29 +85,19 @@ const Header = () => {
                  {/* Do this like nav bar content  */}
                  <div className='fixed bottom-0 pb-3'>
                     {/* having issue here */}
-                    {/* <hr className='my-4 border-gray-500'/> */}
-                    <ul className='flex flex-col gap-3 pt-6 text-white'>
-                        <li>
-                            <span
-                            // style={{
-                            //         transitionDelay: `${index+3}00ms`,
-                            //     }}
-                             className={`${!open && "overflow-hidden opacity-0 translate-x-28"}
-                                 whitespace-pre origin-left duration-500`}>
-                                Github
-                            </span> 
+                    {/* <hr className={`my-4 border-gray-500 ${!open && "overflow-hidden"}`}/> */}
+                    <ul className={`flex flex-row gap-3 pt-6 text-white ${!open && "flex-col"}`}>
+                         <li>
+                             <FontAwesomeIcon icon={faGithub} className='w-[20px] h-[20px]'/>
                         </li>
                         <li>
-                             <span
-                             className={`${!open && "overflow-hidden opacity-0 translate-x-28"}
-                                 whitespace-pre origin-left duration-500`}>LinkedIn</span>
+                            <FontAwesomeIcon icon={faLinkedin} className='w-[20px] h-[20px]'/>
                         </li>
                          <li>
-                             <span
-                             className={`${!open && "overflow-hidden opacity-0 translate-x-28"}
-                                 whitespace-pre origin-left duration-500`}>Resume Link</span>
-                        </li>
+                             <div>Resume Link</div>
+                        </li> 
                     </ul>
+                    
                  </div>
             </div>
     );

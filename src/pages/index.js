@@ -1,11 +1,13 @@
-import Home from "./Home"
-import Projects from './Projects.jsx'
-import Archive from './Archive.jsx'
-import Experience from './Experience.jsx'
+import HomePage from './HomePage.jsx'
+import ProjectsPage from './ProjectsPage.jsx'
+import ArchivePage from './ArchivePage.jsx'
+import ExperiencePage from './ExperiencePage.jsx'
+import LoginPage from './LoginPage.jsx'
 
 export {
-   Home,
-   Projects,
-   Archive,
-   Experience,
+   HomePage,
+   ProjectsPage,
+   ArchivePage,
+   ExperiencePage,
+   LoginPage,
 }
