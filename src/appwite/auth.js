@@ -8,6 +8,8 @@ export class AuthService {
     // creating properties
     client = new Client();
     account;
+    
+
     constructor(){
         this.client
         .setEndpoint(conf.appwriteUrl)
@@ -29,4 +31,15 @@ export class AuthService {
             console.log("Appwrite authentication error :: logout:: ",error);
         }
     }
+    async getCurrentUser(){
+        try {
+            return await this.account.get();
+        } catch (error) {
+            console.log("Appwrite authentication error :: getCurrentUser :: ",error);
+        }
+    }
 }
+
+const authService = new AuthService();
+
+export default authService;

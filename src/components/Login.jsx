@@ -1,31 +1,72 @@
 import React from 'react';
 import { Fire } from '../components/index'
+import { useNavigate } from 'react-router-dom';
+import { login as authLogin} from '../store/authSlice'
+import authService from '../appwite/auth';
+import { useDispatch } from 'react-redux';
+import { useForm } from 'react-hook-form';
+import { useState } from 'react';
+
 
 const Login = () => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const { register, handleSubmit } = useForm()
+    const [ error, setError ] = useState("");
+
+    const login = async(data) => {
+        setError("")
+        try {
+            const session = await authService.login(data)
+            if(session){
+                const userData = await authService.getCurrentUser();
+                if(userData){
+                    dispatch(authLogin(userData))
+                    console.log("User data found ",userData);
+                }else{
+                    console.log("User data not found");
+                }
+                navigate("/dashboard");
+            }
+        } catch (error) {
+            console.log("Login Failed! ",error);
+            return false
+        }
+    }
     return (
        <div>
+         {error && <p className='mt-8 text-red-500 text-center'>{error}</p>}
         <Fire />
             <main className='box'>
+           
                 <h2>Login</h2>
-                <form>
+                <form onSubmit={handleSubmit(login)}>
                     <div className='inputBox'>
-                        <label htmlFor='userName'>UserName</label>
+                        <label htmlFor='email'>Email</label>
                         <input
-                        type='text'
-                        name='userName'
-                        id='userName'
-                        placeholder='Enter your username'
+                        type='email'
+                        id='email'
+                        placeholder='Enter your email'
                         required
+                        {...register("email", {
+                            required: true,
+                            validate: {
+                                matchPattern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                                "Email address must be a valid address",
+                            }
+                        })}
                         />
                     </div>
                     <div className='inputBox'>
                     <label htmlFor='password'>Password</label>
                         <input
                         type='password'
-                        name='password'
                         id='password'
                         placeholder='Enter your password'
                         required
+                        {...register("password", {
+                            required: true,
+                        })}
                         />
                     </div>
                     <button type='submit' style={{ float: "center"}}>Submit</button>

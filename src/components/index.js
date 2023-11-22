@@ -10,6 +10,8 @@ import Glowing from "./tsparticles/Glowing";
 import Projects from "./Projects";
 import Fire from "./tsparticles/Fire";
 import Login from "./Login";
+import Dashboard from "./Dashboard";
+import AuthLayout from "./Authentication/AuthLayout";
 
 export {
     Header,
@@ -24,4 +26,6 @@ export {
     Projects,
     Fire,
     Login,
+    Dashboard,
+    AuthLayout,
 }

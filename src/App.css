@@ -63,3 +63,17 @@ body{
 .box input[type="submit"]:hover, .box button[type="submit"]:hover, a.button:hover {
   opacity: 0.8;
 }
+
+@media screen and (max-width: 480px) {
+  .box {
+      width: 95%;
+  }
+
+  input[type='text'],
+  input[type='password'],
+  button {
+      width: calc(100% - 10px); /* Adjust input/button width */
+      margin-right: 0; /* Remove margin between input and button */
+      margin-bottom: 10px; /* Add margin to separate button from inputs */
+  }
+}

@@ -4,6 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { HomePage, ArchivePage, ExperiencePage, ProjectsPage, LoginPage } from "./pages/index.js"
+import { Dashboard, AuthLayout } from "./components/index.js"
 import { Provider } from 'react-redux'
 import store from '../src/store/store.js'
 
@@ -32,6 +33,15 @@ const router = createBrowserRouter([
         path: "/login",
         element: <LoginPage />
     },
+    {
+      path: "/dashboard",
+      element:(
+        <AuthLayout>
+          {" "}
+          <Dashboard />
+        </AuthLayout>
+      )
+    }
     ]
   }
 ])
