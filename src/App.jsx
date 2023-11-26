@@ -15,9 +15,11 @@ function App() {
       console.log("User data: ",userData)
       if(userData){
         console.log("User is login")
+        console.log("User status ",userData.status)
         dispatch(login({userData}))
       } else{
         console.log("User is logout")
+        console.log("User status: ",userData.status)
         dispatch(logout())
       }
     })

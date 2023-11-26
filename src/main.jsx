@@ -31,13 +31,16 @@ const router = createBrowserRouter([
       },
      {
         path: "/login",
-        element: <LoginPage />
+        element:(
+          <AuthLayout authentication={false}>
+              <LoginPage />
+           </AuthLayout>
+        )
     },
     {
       path: "/dashboard",
       element:(
         <AuthLayout>
-          {" "}
           <Dashboard />
         </AuthLayout>
       )

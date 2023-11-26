@@ -5,7 +5,7 @@ import { Container, Logout as LogoutBtn } from "./index"
 import { useSelector } from 'react-redux';
 
 const Dashboard = () => {
-   const authStatus = useSelector((state) => state.auth.status)
+//    const authStatus = useSelector((state) => state.auth.status)
     return (
         <Container>
             <div>
@@ -13,10 +13,11 @@ const Dashboard = () => {
                     <h1>Admin Page</h1>
                     <div>
                         {/* <button>Logout</button> */}
-                        {authStatus && 
+                        {/* {authStatus &&  */}
                         <div className='bg-pink-600 visible'>
                             <LogoutBtn />
-                        </div>}
+                        </div>
+                        {/* } */}
                     </div>
                 </div>
                 <div className='flex flex-row gap-10'>
