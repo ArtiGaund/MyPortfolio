@@ -12,6 +12,7 @@ import Fire from "./tsparticles/Fire";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
 import AuthLayout from "./Authentication/AuthLayout";
+import Logout from "./Logout";
 
 export {
     Header,
@@ -28,4 +29,5 @@ export {
     Login,
     Dashboard,
     AuthLayout,
+    Logout,
 }

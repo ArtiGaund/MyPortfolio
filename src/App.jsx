@@ -1,6 +1,5 @@
 import React,{ useState, useEffect } from 'react'
 import { Header } from "../src/components/index"
-import { ArchivePage, ExperiencePage, HomePage, ProjectsPage } from '../src/pages/index'
 import { Outlet } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import authService from './appwite/auth'
@@ -13,11 +12,18 @@ function App() {
   useEffect(() => {
     authService.getCurrentUser()
     .then((userData) => {
+      console.log("User data: ",userData)
       if(userData){
-        dispatch(login(userData))
+        console.log("User is login")
+        dispatch(login({userData}))
       } else{
+        console.log("User is logout")
         dispatch(logout())
       }
+    })
+    .catch((error) => {
+      console.log("Authentication check error: ",error);
+      dispatch(logout())
     })
     .finally(() => setLoading(false))
   }, [])
