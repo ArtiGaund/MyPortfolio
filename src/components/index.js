@@ -13,6 +13,7 @@ import Login from "./Login";
 import Dashboard from "./Dashboard";
 import AuthLayout from "./Authentication/AuthLayout";
 import Logout from "./Logout";
+import ProjectForm from "./ProjectForm";
 
 export {
     Header,
@@ -30,4 +31,5 @@ export {
     Dashboard,
     AuthLayout,
     Logout,
+    ProjectForm,
 }

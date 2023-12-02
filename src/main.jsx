@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { HomePage, ArchivePage, ExperiencePage, ProjectsPage, LoginPage } from "./pages/index.js"
+import { HomePage, ArchivePage, ExperiencePage, ProjectsPage, LoginPage, AddProject } from "./pages/index.js"
 import { Dashboard, AuthLayout } from "./components/index.js"
 import { Provider } from 'react-redux'
 import store from '../src/store/store.js'
@@ -42,6 +42,14 @@ const router = createBrowserRouter([
       element:(
         <AuthLayout>
           <Dashboard />
+        </AuthLayout>
+      )
+    },
+    {
+      path: "/addProject",
+      element:(
+        <AuthLayout>
+          <AddProject />
         </AuthLayout>
       )
     }
