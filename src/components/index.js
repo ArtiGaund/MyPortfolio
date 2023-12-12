@@ -14,6 +14,9 @@ import Dashboard from "./Dashboard";
 import AuthLayout from "./Authentication/AuthLayout";
 import Logout from "./Logout";
 import ProjectForm from "./ProjectForm";
+import BiographyModal from "./modals/BiographyModal";
+import SkillsModal from "./modals/SkillsModal";
+import ExperienceModal from "./modals/ExperienceModal";
 
 export {
     Header,
@@ -32,4 +35,7 @@ export {
     AuthLayout,
     Logout,
     ProjectForm,
+    BiographyModal,
+    SkillsModal,
+    ExperienceModal,
 }

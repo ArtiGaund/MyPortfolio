@@ -1,11 +1,26 @@
 // only admin can access this page, restricting other user who are not authorized to access this page 
 
-import React from 'react';
+import React,{ useState }  from 'react';
 import { Container} from "./index"
 import { useNavigate } from 'react-router-dom';
+import { BiographyModal, SkillsModal, ExperienceModal } from "./index";
+
 
 const Dashboard = () => {
     const navigate = useNavigate();
+    const [showBio,setShowBio] = useState(false);
+    const [showSkills, setShowSkills ] = useState(false);
+    const [ showExperience, setShowExperience ] = useState(false);
+    const showBiographyModal = () =>{
+        setShowBio(true);
+    }
+    const showSkillsModal = () => {
+        setShowSkills(true);
+    }
+
+    const showExperienceModal = () => {
+        setShowExperience(true);
+    }
     return (
         <Container>
             <div className='w-full bg-gray-900'>
@@ -41,7 +56,7 @@ const Dashboard = () => {
                                 className='flex items-center gap-2 px-4 py-2 font-sans text-xs font-bold text-center
                                 text-gray-900 uppercase align-middle transition-all rounded-lg select-none disabled:opacity-50
                                 disable:shadow-none disabled:pointer-events-none hover:bg-gray-900/10 active:bg-gray-900/20'
-                                onClick={() => navigate("/addProject")}
+                               onClick={showBiographyModal}
                                 >
                                     Click here!
                             
@@ -53,6 +68,9 @@ const Dashboard = () => {
                             </a>
                         </div>
                     </div>
+                    {showBio ? (
+                       <BiographyModal setShowBio={setShowBio}/>
+                      ) : null}
                     {/* Experience card */}
                         <div className='relative flex flex-col mt-6 text-gray-700 bg-white shadow-md 
                     bg-clip-border rounded-xl w-96 m-5'>
@@ -81,6 +99,7 @@ const Dashboard = () => {
                                     className='flex items-center gap-2 px-4 py-2 font-sans text-xs font-bold text-center
                                     text-gray-900 uppercase align-middle transition-all rounded-lg select-none disabled:opacity-50
                                     disable:shadow-none disabled:pointer-events-none hover:bg-gray-900/10 active:bg-gray-900/20'
+                                    onClick={showExperienceModal}
                                     >
                                         Click here!
                                 
@@ -92,6 +111,9 @@ const Dashboard = () => {
                                 </a>
                             </div>
                         </div>
+                        { showExperience ? (
+                            <ExperienceModal setShowExperience={setShowExperience} />
+                        ): null}
                     {/* Skill card */}
                     <div className='relative flex flex-col mt-6 text-gray-700 bg-white shadow-md 
                 bg-clip-border rounded-xl w-96 m-5'>
@@ -120,6 +142,7 @@ const Dashboard = () => {
                                 className='flex items-center gap-2 px-4 py-2 font-sans text-xs font-bold text-center
                                 text-gray-900 uppercase align-middle transition-all rounded-lg select-none disabled:opacity-50
                                 disable:shadow-none disabled:pointer-events-none hover:bg-gray-900/10 active:bg-gray-900/20'
+                                onClick={showSkillsModal}
                                 >
                                     Click here!
                             
@@ -131,6 +154,9 @@ const Dashboard = () => {
                             </a>
                         </div>
                     </div>
+                    { showSkills ? (
+                        <SkillsModal setShowSkills={setShowSkills} />
+                    ): null}
                 {/* Project card */}
                     <div className='relative flex flex-col mt-6 text-gray-700 bg-white shadow-md 
                 bg-clip-border rounded-xl w-96 m-5'>
