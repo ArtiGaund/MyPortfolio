@@ -17,6 +17,9 @@ import ProjectForm from "./ProjectForm";
 import BiographyModal from "./modals/BiographyModal";
 import SkillsModal from "./modals/SkillsModal";
 import ExperienceModal from "./modals/ExperienceModal";
+import OnGoingProject from "./ProjectSection/OnGoingProject";
+import CompletedProject from "./ProjectSection/CompletedProject";
+import AddTechForm from "./skills/AddTechForm";
 
 export {
     Header,
@@ -38,4 +41,7 @@ export {
     BiographyModal,
     SkillsModal,
     ExperienceModal,
+    OnGoingProject,
+    CompletedProject,
+    AddTechForm,
 }
