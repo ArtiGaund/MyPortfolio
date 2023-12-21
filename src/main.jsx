@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         element:(
           <AuthLayout authentication={false}>
               <LoginPage />
-           </AuthLayout>
+            </AuthLayout> 
         )
     },
     {
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       element:(
         <AuthLayout>
           <Dashboard />
-        </AuthLayout>
+         </AuthLayout>
       )
     },
     {
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       element:(
         <AuthLayout>
           <AddProject />
-        </AuthLayout>
+         </AuthLayout>
       )
     }
     ]

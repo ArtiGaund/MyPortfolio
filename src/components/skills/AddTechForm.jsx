@@ -6,9 +6,14 @@ import Techs from './Techs';
 const AddTechForm = () => {
     return (
         <>
-        <h1>Add Techs used in this projects</h1>
-        <AddTech />
-        <Techs />
+        <div className="w-full lg:w-12/12 px-4">
+            <div className="relative w-full mb-3">
+                
+                    <AddTech />
+                    <Techs />
+            </div>
+        </div>
+        
         </>
     );
 };

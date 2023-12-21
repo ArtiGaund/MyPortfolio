@@ -1,6 +1,6 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 const initialState = {
-    skills : [{id:1, text: "text"}, { id: 2, text: "text 2"}]
+    skills : [{}]
 }
 
 export const skillSlice = createSlice({
@@ -12,7 +12,7 @@ export const skillSlice = createSlice({
                 id: nanoid(),
                 text: action.payload
             }
-            state.skills.push(skill)
+            state.skills = [...state.skills, skill]
         },
         removeSkill: ( state, action ) => {
             state.skills = state.skills.filter(( skill ) => skill.id !== action.payload )

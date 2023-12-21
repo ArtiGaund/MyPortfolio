@@ -34,10 +34,10 @@ const Login = () => {
         }
     }
     return (
-       <div>
+       <div className="login-body">
          {error && <p className='mt-8 text-red-500 text-center'>{error}</p>}
         <Fire />
-            <main className='box'>
+            {/* <main className='box'>
            
                 <h2>Login</h2>
                 <form onSubmit={handleSubmit(login)}>
@@ -69,9 +69,47 @@ const Login = () => {
                         })}
                         />
                     </div>
-                    <button type='submit' style={{ float: "center"}}>Submit</button>
+                    <button type="submit" style={{ float: "center"}}>Submit</button>
                 </form>
-            </main>
+            </main> */}
+            <div className="login-box">
+            <h2>Login</h2>
+            <form onSubmit={handleSubmit(login)}>
+                <div className="user-box">
+                    <input
+                        type='email'
+                        id='email'
+                        required
+                        {...register("email", {
+                            required: true,
+                            validate: {
+                                matchPattern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                                "Email address must be a valid address",
+                            }
+                        })}
+                    />
+                    <label>Username</label>
+                </div>
+                <div className="user-box">
+                    <input
+                        type='password'
+                        id='password'
+                        required
+                        {...register("password", {
+                            required: true,
+                        })}
+                        />
+                    <label>Password</label>
+                </div>
+                <button type="submit">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Submit
+                </button>
+            </form>
+            </div>
        </div>
     );
 };
