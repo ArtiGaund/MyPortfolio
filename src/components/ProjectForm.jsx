@@ -1,5 +1,5 @@
 
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Button, Input, RTE, Select } from "./formData/index"
 import { useForm } from 'react-hook-form';
 import appwriteService from "../appwite/config"
@@ -7,6 +7,10 @@ import { useSelector, useDispatch } from "react-redux"
 import { AddTechForm } from "./index"
 
 const ProjectForm = ({ project }) => {
+    const [ technology, setTechnology ] = useState([])
+    const handleTechListUpdate = (newTechList) => {
+        setTechnology(newTechList);
+    }
     const curDate = new Date();
     const { register, handleSubmit, watch, setValue,control, getValues } = useForm({
         defaultValues: {
@@ -22,7 +26,10 @@ const ProjectForm = ({ project }) => {
         }
     })
     const submit = async(data) => {
+        console.log("Test");
         console.log("Data ",data)
+        const mergeData = {...data, technology};
+        console.log("Form Data: ",mergeData);
         //project is present
         if(project){
             const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null
@@ -46,14 +53,24 @@ const ProjectForm = ({ project }) => {
                 console.log("fileId ",fileId)
                 data.profileImage = fileId
                 console.log("data ",data);
-                const dbProject = await appwriteService.addProject({
-                    ...data
+                console.log("Technology ",technology);
+                console.log("Merge data ",mergeData)
+                const dbSkill = await appwriteService.addTechs({
+                    technology
                 })
-                if(dbProject){
-                    console.log("Project data added into database successfully")
-                }else{ 
-                    console.log("Project is not added in database")
+                if(dbSkill){
+                    console.log("Data added into Skill collection");
+                }else{
+                    console.log("Data not added into Skill collection");
                 }
+                // const dbProject = await appwriteService.addProject({
+                //     ...data
+                // })
+                // if(dbProject){
+                //     console.log("Project data added into database successfully")
+                // }else{ 
+                //     console.log("Project is not added in database")
+                // }
             }
         }
     }
@@ -78,7 +95,7 @@ const ProjectForm = ({ project }) => {
     return (
         <>
         {/* <form onSubmit={handleSubmit(submit)} className='flex flex-wrap m-5'>
-            <div>
+            <div className="bg-gray-800">
                 <div>
                     <Input 
                         label="Title: "
@@ -142,7 +159,7 @@ const ProjectForm = ({ project }) => {
                 </div>
             </div>
         </form> */}
-        <form>
+        <form onSubmit={handleSubmit(submit)}>
         <section className="py-1 bg-gray-800">
             <div className="w-full lg:w-8/12 px-4 mx-auto mt-6">
                 <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-950 border-0">
@@ -172,6 +189,7 @@ const ProjectForm = ({ project }) => {
                                     type="text"
                                     className="border-0 px-3 py-3 placeholder:text-gray-300 text-gray-600 bg-white rounded
                                     text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                    {...register("title", { required: true })}
                                     />
                                 </div>
                             </div>
@@ -184,6 +202,10 @@ const ProjectForm = ({ project }) => {
                                     type="text"
                                     className="border-0 px-3 py-3 placeholder:text-gray-300 text-gray-600 bg-white rounded
                                     text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                    {...register("slug", { required: true })}
+                                    onInput = { (e) => {
+                                        setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true})
+                                    }}
                                     />
                                 </div>
                             </div>
@@ -196,6 +218,7 @@ const ProjectForm = ({ project }) => {
                                     type="text"
                                     className="border-0 px-3 py-3 placeholder:text-gray-300 text-gray-600 bg-white rounded
                                     text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                    {...register("shortDescription", { required: true})}
                                     />
                                 </div>
                             </div>
@@ -214,6 +237,7 @@ const ProjectForm = ({ project }) => {
                                         type="text"
                                         className="border-0 px-3 py-3 placeholder:text-gray-300 text-gray-600 bg-white
                                         rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                        {...register("githubLink", { required: true })}
                                         />
                                     </div>
                                     
@@ -227,6 +251,7 @@ const ProjectForm = ({ project }) => {
                                         type="text"
                                         className="border-0 px-3 py-3 placeholder:text-gray-300 text-gray-600 bg-white
                                         rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                        {...register("demoLink")}
                                         />
                                     </div>
                                     
@@ -240,14 +265,14 @@ const ProjectForm = ({ project }) => {
                             <div className="w-full lg:w-12/12 px-4">
                                 <div className="relative w-full mb-3">
                                     <label className="block uppercase text-gray-600 text-xs font-bold mb-2">
-                                        Select
+                                        Status
                                     </label>
-                                    <select className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border
-                                    border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring text-xs">
-                                        <option>ongoing</option>
-                                        <option>completed</option>
-                                        <option>archeive</option>
-                                    </select>
+                                    <Select
+                                        options={[ "ongoing", "completed", "archeive"]}
+                                        className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border
+                                        border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring text-xs"
+                                        {...register("status", { required: true })}
+                                    />
                                 </div>
                                 <div className="w-full lg:w-12/12 px-4">
                                     <div className="relative w-full mb-3">
@@ -271,7 +296,6 @@ const ProjectForm = ({ project }) => {
                                                 </svg>
                                                 <div className="flex text-sm text-gray-600">
                                                     <label
-                                                    for="file-upload"
                                                     className="relative cursor-pointer bg-gray-900 rounded-md
                                                      font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none
                                                       focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
@@ -281,6 +305,8 @@ const ProjectForm = ({ project }) => {
                                                         type="file"
                                                         id='file-upload'
                                                         className="sr-only"
+                                                        accept="image/png image/jpg image/jpeg image/gif"
+                                                        {...register("image", { required: !project })}
                                                         />
                                                     </label>
                                                     <p className="pl-1 text-white"> or drag and drop</p>
@@ -297,7 +323,7 @@ const ProjectForm = ({ project }) => {
                             <h6 className="text-gray-400 text-sm mt-3 mb-6 font-bold uppercase">
                                 Add Technology used in this project
                             </h6>
-                            <AddTechForm />
+                            <AddTechForm slug={watch("slug")}  onTechListUpdate={handleTechListUpdate}/>
                             <hr className="mt-6 border-b-1 border-gray-300"/>
                             <h6 className="text-gray-400 text-sm mt-3 mb-6 font-bold uppercase">
                                 Complete workflow of the project

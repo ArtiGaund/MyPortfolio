@@ -1,6 +1,6 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 const initialState = {
-    skills : [{}]
+    skills : []
 }
 
 export const skillSlice = createSlice({
@@ -8,15 +8,17 @@ export const skillSlice = createSlice({
     initialState,
     reducers: {
         addSkill: ( state, action ) => {
+            const { id, technology, projects } = action.payload;
             const skill = {
-                id: nanoid(),
-                text: action.payload
+               id,
+               technology, 
+               projects: projects? projects : [],
             }
             state.skills = [...state.skills, skill]
         },
         removeSkill: ( state, action ) => {
             state.skills = state.skills.filter(( skill ) => skill.id !== action.payload )
-        }
+        },
     }
 })
 
