@@ -16,46 +16,19 @@ export class Service{
     }
 
     // add project method
-    async addTechs({ technology}){
-        console.log("technology in config ",technology[0].technology)
-        console.log("projects in config ",technology[0].projects)
-        // console.log("projects in config ",projects)
+    async addTechs({ technology, projects}){
         try {
-            for(const tech of technology){
-                const filters = [`technology=${tech.technology}`];
-                console.log("filters ",filters);
-                const existingTech = await this.databases.listDocuments(
-                    conf.appwriteDatabaseId,
-                    conf.appwriteSkillCollectionId,
-                    filters
-                )
-                if(existingTech.documents.length>0){
-                    const existingTechId = existingTech.documents[0].$id;
-                    await this.databases.updateDocument(
-                        conf.appwriteDatabaseId,
-                        conf.appwriteSkillCollectionId,
-                        existingTechId,
-                        {
-                            projects: [...existingTech.documents[0].projects, ...tech.projects]
-                        }
-                    )
-                }else{
-                    await this.databases.createDocument(
-                        conf.appwriteDatabaseId,
-                        conf.appwriteSkillCollectionId,
-                        tech.id,
-                        {
-                            technology: tech.technology,
-                           projects: tech.projects,
-                        }
-                    )
+            const tech = await this.databases.createDocument( 
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                {
+                    technology,
+                    projects,
                 }
-                
-            }
-        return true;
+            )
+            return tech
         } catch (error) {
-            console.log("Appwrite service :: addSkills :: error ",error)
-            return false;
+            console.log("Appwrite Service :: addTechs :: error ",error);
         }
     }
     async addProject({ 
@@ -68,11 +41,12 @@ export class Service{
         status,
         longDescription,
         uploadDate,
-        updateDate
+        updateDate,
+        skills
     }){
        console.log("title", title);
         try {
-            return await this.databases.createDocument(
+            const project =  await this.databases.createDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 slug,
@@ -85,11 +59,14 @@ export class Service{
                     status,
                     longDescription,
                     uploadDate,
-                    updateDate
+                    updateDate,
+                    skills
                 }
             )
+            return project
         } catch (error) {
             console.log("Appwrite service :: createProjectPost :: error ",error);
+            console.log("error type ",error.type);
         }
     }
     // edit project method
@@ -102,7 +79,8 @@ export class Service{
         status,
         longDescription,
         uploadDate,
-        updateDate
+        updateDate,
+        skills
     }){
         try {
             return await this.databases.updateDocument(
@@ -119,6 +97,7 @@ export class Service{
                     longDescription,
                     uploadDate,
                     updateDate,
+                    skills
                 }
             )
         } catch (error) {

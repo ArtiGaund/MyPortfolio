@@ -26,10 +26,15 @@ const ProjectForm = ({ project }) => {
         }
     })
     const submit = async(data) => {
+        
         console.log("Test");
         console.log("Data ",data)
-        const mergeData = {...data, technology};
+        const mergeData = {...data, skills:technology};
         console.log("Form Data: ",mergeData);
+        const projectData = await appwriteService.getSingleProject("6587ffd2db691da42a1b")
+        console.log("Project Data ",projectData)
+        // const projectCompleted = await appwriteService.getAllCompletedProject("completed")
+        // console.log("Project Completed ",projectCompleted)
         //project is present
         if(project){
             const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null
@@ -37,7 +42,7 @@ const ProjectForm = ({ project }) => {
                 appwriteService.deleteFile(post.profileImage);
             }
             const dbPost = await appwriteService.updateProject(project.$id, {
-                ...data,
+                ...mergeData,
                 profileImage: file ? file.$id : undefined,
             })
             if(dbPost){
@@ -54,23 +59,15 @@ const ProjectForm = ({ project }) => {
                 data.profileImage = fileId
                 console.log("data ",data);
                 console.log("Technology ",technology);
-                console.log("Merge data ",mergeData)
-                const dbSkill = await appwriteService.addTechs({
-                    technology
+               
+                const dbProject = await appwriteService.addProject({
+                    ...mergeData
                 })
-                if(dbSkill){
-                    console.log("Data added into Skill collection");
-                }else{
-                    console.log("Data not added into Skill collection");
+                if(dbProject){
+                    console.log("Project data added into database successfully")
+                }else{ 
+                    console.log("Project is not added in database")
                 }
-                // const dbProject = await appwriteService.addProject({
-                //     ...data
-                // })
-                // if(dbProject){
-                //     console.log("Project data added into database successfully")
-                // }else{ 
-                //     console.log("Project is not added in database")
-                // }
             }
         }
     }
@@ -323,7 +320,7 @@ const ProjectForm = ({ project }) => {
                             <h6 className="text-gray-400 text-sm mt-3 mb-6 font-bold uppercase">
                                 Add Technology used in this project
                             </h6>
-                            <AddTechForm slug={watch("slug")}  onTechListUpdate={handleTechListUpdate}/>
+                            <AddTechForm  onTechListUpdate={handleTechListUpdate}/>
                             <hr className="mt-6 border-b-1 border-gray-300"/>
                             <h6 className="text-gray-400 text-sm mt-3 mb-6 font-bold uppercase">
                                 Complete workflow of the project

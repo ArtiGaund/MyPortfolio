@@ -8,13 +8,14 @@ export const skillSlice = createSlice({
     initialState,
     reducers: {
         addSkill: ( state, action ) => {
-            const { id, technology, projects } = action.payload;
+            const tech = action.payload
+            console.log("Tech in skillSlice ",tech);
             const skill = {
-               id,
-               technology, 
-               projects: projects? projects : [],
+               id: nanoid(),
+               technology: tech,
             }
             state.skills = [...state.skills, skill]
+            console.log("Skills in skillSlice ",state.skills)
         },
         removeSkill: ( state, action ) => {
             state.skills = state.skills.filter(( skill ) => skill.id !== action.payload )

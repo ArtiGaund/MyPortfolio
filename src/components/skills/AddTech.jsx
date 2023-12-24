@@ -3,13 +3,13 @@ import { useDispatch } from 'react-redux';
 import { addSkill } from '../../store/skillSlice';
 import { nanoid } from '@reduxjs/toolkit';
 
-const AddTech = ({ slug, onTechListUpdate }) => {
+const AddTech = ({ onTechListUpdate }) => {
     // console.log("Slug value in AddTechs ",slug);
     const [ input, setInput ] = useState('')
     const dispatch = useDispatch()
     const addSkillHandler = () => {
        if(input.trim()!== ''){
-        dispatch(addSkill({ id: nanoid(), technology: input, projects: [slug]}))
+        dispatch(addSkill(input))
         setInput('')
         onTechListUpdate(prevList => [...prevList, input])
        }
