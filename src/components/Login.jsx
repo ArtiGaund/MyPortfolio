@@ -1,5 +1,4 @@
 import React from 'react';
-import { Fire } from '../components/index'
 import { useNavigate } from 'react-router-dom';
 import { login as authLogin} from '../store/authSlice'
 import authService from '../appwite/auth';
@@ -36,7 +35,6 @@ const Login = () => {
     return (
        <div className="login-body">
          {error && <p className='mt-8 text-red-500 text-center'>{error}</p>}
-        <Fire />
             {/* <main className='box'>
            
                 <h2>Login</h2>

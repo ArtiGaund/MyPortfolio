@@ -13,17 +13,35 @@ export default function RTE({ name,control, label, defaultValue = "" }){
             render={({ field: { onChange }}) => (
                 <Editor
                 initialValue = {defaultValue}
-                apiKey='2rbg9v99pgm8iuay0z48rjsb41a46oelv0ld45rub1l3ffa1'
                 init={{
-                    plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
-                    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-                    tinycomments_mode: 'embedded',
-                    tinycomments_author: 'Author name',
-                    mergetags_list: [
-                    { value: 'First.Name', title: 'First Name' },
-                    { value: 'Email', title: 'Email' },
+                    initialValue: defaultValue,
+                    height: 500,
+                    menubar: true,
+                    plugins: [
+                        "image",
+                        "advlist",
+                        "autolink",
+                        "lists",
+                        "link",
+                        "image",
+                        "charmap",
+                        "preview",
+                        "anchor",
+                        "searchreplace",
+                        "visualblocks",
+                        "code",
+                        "fullscreen",
+                        "insertdatetime",
+                        "media",
+                        "table",
+                        "code",
+                        "help",
+                        "wordcount",
+                        "anchor",
                     ],
-                    ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+                    toolbar:
+                    "undo redo | blocks | image | bold italic forecolor | alignleft aligncenter bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |removeformat | help",
+                    content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }"
                 }}
                 onEditorChange={onChange}
                 >

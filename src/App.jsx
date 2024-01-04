@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import authService from './appwite/auth'
 import { login, logout } from '../src/store/authSlice'
+import { AnimatePresence } from 'framer-motion'
 import './App.css'
 function App() {
   const [ loading, setLoading ] = useState(true)
@@ -34,15 +35,19 @@ function App() {
   }, [])
 
   return (
-      <div className='flex flex-row h-screen overflow-hidden'>
+    <>
+      {/* <div className='flex flex-row h-screen overflow-hidden'> */}
           <Header/>
-          <div className='text-2xl font-semibold flex-1 h-screen overflow-y-auto'>
-            <main>
-              {loading ? <h1>Loading...</h1>:  <Outlet />}
-             
-            </main>
-          </div>
-      </div>
+          {/* <div className='text-2xl font-semibold flex-1 h-screen overflow-y-auto'> */}
+            <AnimatePresence>
+              <main>
+                {loading ? <h1>Loading...</h1>:  <Outlet />}
+              
+              </main>
+            </AnimatePresence>
+          {/* </div> */}
+      {/* </div> */}
+      </>
   )
 }
 

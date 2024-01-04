@@ -3,7 +3,7 @@ import React from 'react';
 
 const ArchivePage = () => {
     return (
-        <div>
+        <div className="bg-gray-800 h-screen">
             Archieve page
         </div>
     );

@@ -29,10 +29,12 @@ const ProjectForm = ({ project }) => {
         
         console.log("Test");
         console.log("Data ",data)
-        const mergeData = {...data, skills:technology};
+        const skillsMutate = technology.map(item => ({ technology: item.technology}))
+        const mergeData = {...data, skills:skillsMutate};
+        
         console.log("Form Data: ",mergeData);
-        const projectData = await appwriteService.getSingleProject("6587ffd2db691da42a1b")
-        console.log("Project Data ",projectData)
+        // const projectData = await appwriteService.getSingleProject("6587ffd2db691da42a1b")
+        // console.log("Project Data ",projectData)
         // const projectCompleted = await appwriteService.getAllCompletedProject("completed")
         // console.log("Project Completed ",projectCompleted)
         //project is present
@@ -91,71 +93,6 @@ const ProjectForm = ({ project }) => {
     }, [ watch, slugTransform, setValue ])
     return (
         <>
-        {/* <form onSubmit={handleSubmit(submit)} className='flex flex-wrap m-5'>
-            <div className="bg-gray-800">
-                <div>
-                    <Input 
-                        label="Title: "
-                        placeholder="Title"
-                        className="mb-4"
-                        {...register("title", { required: true })}
-                    />
-                    <Input 
-                        label="Slug: "
-                        placeholder="Slug"
-                        className="mb-4"
-                        {...register("slug", { required: true })}
-                        onInput = { (e) => {
-                            setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true})
-                        }}
-                    />
-                     <Input 
-                        label="Short Description: "
-                        placeholder="Short Description"
-                        className="mb-4"
-                        {...register("shortDescription", { required: true})}
-                    />
-                    <AddTechForm />
-                    <RTE label="Content: " name="content" control={control} defaultValue={getValues("content")}/>
-                </div>
-                <div>
-                    <Input 
-                        label="Project Image: "
-                        type="file"
-                        className="mb-4"
-                        accept="image/png image/jpg image/jpeg image/gif"
-                        {...register("image", { required: !project })}
-                    />
-                    <Select
-                        options={[ "ongoing", "completed", "archeive"]}
-                        label="Status"
-                        className="mb-4"
-                        {...register("status", { required: true })}
-                    />
-                    <Input 
-                    type="text"
-                    label="Enter Github link: "
-                    placeholder="Enter Github link"
-                    className="mb-4"
-                    {...register("githubLink", { required: true })}
-                    />
-                    <Input 
-                    type="text"
-                    placeholder="Enter Demo link"
-                    label="Enter Demo link: "
-                    className="mb-4"
-                    {...register("demoLink")}
-                    />
-                    <Button
-                    type='submit'
-                    bgColor="bg-green-500"
-                    className='w-full'
-                    >
-                        Submit
-                    </Button>
-                </div>
-            </div>
-        </form> */}
         <form onSubmit={handleSubmit(submit)}>
         <section className="py-1 bg-gray-800">
             <div className="w-full lg:w-8/12 px-4 mx-auto mt-6">

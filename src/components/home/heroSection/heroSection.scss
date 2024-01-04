@@ -1,0 +1,77 @@
+
+// Laptop screen
+.hero-container{
+    width: 80%;
+    height: 80%;
+    background-color: black;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   position: relative;
+    margin: 5%;
+    margin-left: 10%;
+    justify-content: center;
+    padding: 0;
+    align-items: center;
+    // margin-left: 15%;
+    border-radius: 30px;
+    filter: drop-shadow(2px 2px 2px white);
+    column-gap: 20px;
+    overflow: hidden;
+
+    .hero-content,
+    .hero-image{
+        box-sizing: border-box;
+        padding: 0;
+        width: 100%;
+        position: relative;
+    }
+    .hero-content{
+       
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        margin-left: 3rem;
+        overflow: hidden;
+
+        .heading{
+            font-size: larger;
+            margin-bottom: 80px;
+            margin-left: 15px;
+        }
+
+        .content{
+            margin: 10px;
+            font-size:x-large;
+
+            h1{
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+        }
+
+        .media{
+            margin: 60px;
+        }
+    }
+    .hero-image {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+      }
+}
+// Tablet screens
+@media (max-width: 768px){
+    .hero-container{
+        width: 90%;
+        position: absolute;
+        margin: 10%;
+    }
+}
+
+// Mobile screens
+@media (max-width: 480px){
+    .hero-container{
+        width: 80%;
+        position: absolute;
+        margin: 10%;
+        margin-top: 25%;
+    }
+}

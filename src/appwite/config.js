@@ -16,17 +16,9 @@ export class Service{
     }
 
     // add project method
-    async addTechs({ technology, projects}){
+    async addTechs({ skills, slug}){
         try {
-            const tech = await this.databases.createDocument( 
-                conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
-                {
-                    technology,
-                    projects,
-                }
-            )
-            return tech
+           
         } catch (error) {
             console.log("Appwrite Service :: addTechs :: error ",error);
         }
@@ -44,8 +36,11 @@ export class Service{
         updateDate,
         skills
     }){
+        
+        console.log("skills ",skills);
        console.log("title", title);
         try {
+            // const skillsIds = await this.addTechs({skills,slug})
             const project =  await this.databases.createDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
@@ -64,6 +59,7 @@ export class Service{
                 }
             )
             return project
+            // return skillsIds
         } catch (error) {
             console.log("Appwrite service :: createProjectPost :: error ",error);
             console.log("error type ",error.type);

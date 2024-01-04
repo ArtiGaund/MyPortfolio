@@ -1,0 +1,34 @@
+.services{
+    justify-content: center;
+    text-align: center;
+    margin: 10rem;
+}
+
+.services-cards{
+    margin-top: 5rem;
+}
+ .services-heading{
+    font-size: 2rem;
+  }
+  .services-subheading{
+    font-size: 3.5rem;
+  }
+
+  .service-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    box-sizing: border-box;
+    grid-gap: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .service-cards-grid {
+      grid-template-columns: repeat(2, 1fr); 
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .service-cards-grid {
+      grid-template-columns: 1fr;
+    }
+  }

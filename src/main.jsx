@@ -7,6 +7,7 @@ import { HomePage, ArchivePage, ExperiencePage, ProjectsPage, LoginPage, AddProj
 import { Dashboard, AuthLayout } from "./components/index.js"
 import { Provider } from 'react-redux'
 import store from '../src/store/store.js'
+import { motion } from 'framer-motion'
 
 const router = createBrowserRouter([
   {
@@ -15,19 +16,49 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <HomePage />
+        element: <motion.div 
+        initial={{ x: 100 }}
+        animate={{ x: 0 }}
+        exit={{ x: -100 }}
+      >
+        <HomePage />
+      </motion.div>
       },
       {
         path: "/experience",
-        element: <ExperiencePage />
+        element:
+        <motion.div 
+        initial={{ x: 100 }}
+        animate={{ x: 0 }}
+        exit={{ x: -100 }}
+      >
+       <ExperiencePage />
+      </motion.div>
+        
       },
       {
         path: "/projects",
-        element: <ProjectsPage />
+        element: 
+        <motion.div 
+        initial={{ x: 100 }}
+        animate={{ x: 0 }}
+        exit={{ x: -100 }}
+      >
+         <ProjectsPage />
+      </motion.div>
+       
       },
       {
         path: "/archive",
-        element: <ArchivePage />
+        element:
+        <motion.div 
+        initial={{ x: 100 }}
+        animate={{ x: 0 }}
+        exit={{ x: -100 }}
+      >
+       <ArchivePage />
+      </motion.div>
+        
       },
      {
         path: "/login",

@@ -3,7 +3,7 @@ import image from "../../assets/images/jk_qatar22.jpg"
 
 const CompletedProjectCard = () => {
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 overflow-hidden">
             <div className="rounded overflow-hidden shadow-lg flex flex-col bg-white">
                 <div className="relative">
                     <a href='#'>
@@ -28,7 +28,7 @@ const CompletedProjectCard = () => {
                 
                 <div className="px-6 py-4">
                     <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-                    <p className="text-gray-700 text-base">
+                    <p className="text-gray-700 text-base h-[1rem]">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
                     </p>
