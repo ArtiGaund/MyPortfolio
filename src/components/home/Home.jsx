@@ -26,17 +26,33 @@ const Home = () => {
         //  </div>
         <motion.div>
           <section>
-            <motion.div className="home-page">
+            <motion.div 
+            initial={{ opacity: 0, y: -50 }}
+            whileInView={{ opacity: 1, y: 0}}
+            viewport={{ once: true}}
+            transition={{ delay: 0.5 }}
+            className="home-page">
               <HeroSection />
             </motion.div>
           </section>
           <section>
-            <motion.div className="service">
+            <motion.div className="service"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0}}
+            viewport={{ once: true}}
+            >
               <Services />
             </motion.div>
           </section>
           <section>
-            <ProjectSection />
+            <motion.div
+             initial={{ opacity: 0, y: 50 }}
+             whileInView={{ opacity: 1, y: 0}}
+             viewport={{ once: true}}
+            >
+              <ProjectSection />
+            </motion.div>
+            
           </section>
           <section>
             <motion.div>

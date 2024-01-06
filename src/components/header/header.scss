@@ -9,16 +9,16 @@
     position: absolute;
 
     // its the nav bar
-    .bg{
+    .nav{
         position: fixed;
         top: 0;
         left: 0;
         bottom: 0;
-        width: 200px;
-        background-color: white;
+        width: 8rem;
+        background-color: transparent;
 
 
-        .links{
+        .nav-links{
             position: absolute;
             width: 100%;
             height: 100%;
@@ -29,21 +29,53 @@
             gap: 20px;
             z-index: 20;
 
-            a{
-                font-size: 20px;
+            .nav-links-container
+            {
+                display: flex;
+                background-color: white;
+                width: 5rem;
+                height: 17rem;
+                padding: 0;
+                justify-content: center;
+                justify-items: center;
+                // align-items: center;
+                border-radius: 5%;
+               
+                .nav-links-item{
+                    background-color: black;
+                    height: 3rem;
+                    width: 3rem;
+                    border-radius: 20%;
+                    // display: flex;
+                    // justify-content: center;
+                    // justify-items: center;
+                    align-items: center;
+                    a{
+                        font-size: 20rem;
+                    }
+                }
+               
             }
+
+           
         }
     }
     //nav bar circle button
-    button{
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
+    .toggle-btn{
+        width: 60px;
+        height: 60px;
+        border-radius: 60%;
         position: fixed;
-        top: 25px;
-        left: 37px;
-        background-color: transparent;
+        top: 27px;
+        left: 39px;
+        background-color: white;
         border: none;
         cursor: pointer;
+
+        .toggle-btn-line{
+            position: absolute;
+            left: 1.2rem;
+            bottom: 1.2rem;
+        }
     }
 }

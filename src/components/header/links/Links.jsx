@@ -46,16 +46,18 @@ const Links = () => {
     ]
 
     return (
-        <motion.div className="links">
+        <motion.div className="nav-links">
            {/* {items.map((item) => (
             <a href={`#${item}`} key={item}>{item}</a>
            ))} */}
+           <div className='nav-links-container'>
            <ul className="pt-6 relative">
                {Menus.map((Menu, index) => (
+                <div className='nav-links-item' key={index}>
                     <li
                    key={index}
                     className={`flex rounded-md p-2 cursor-pointer
-                    text-sm items-center gap-y-4 
+                    text-sm items-center gap-y text-white 
                         ${index !== 0 ? "mt-4" : ""}
                         `}
                         onClick={() => navigate(Menu.location)}
@@ -65,20 +67,24 @@ const Links = () => {
                         onClick={() => setActive(index)}
                         >
                                             
-                                            <span className={`text-xl cursor-pointer duration-300 z-10
+                                            <span
+                                            style={{ fontSize: '20rem'}}
+                                            className={`text-xl cursor-pointer duration-300 z-10
                                            `}>{Menu.icon}</span>
-                                            <span 
+                                            {/* <span 
                                             className={`${active === index 
                                                 ? "translate-x-4 duration-700 opacity-100" 
                                                 : "opacity-100 translate-x-10"} ml-2`}
                                            >
                                                 {Menu.title}
-                                            </span>
+                                            </span> */}
                                             </a>
                                         </li>
+                                        </div>
                                     ))}
                                 
                                  </ul>
+                                 </div>
         </motion.div>
     );
 };

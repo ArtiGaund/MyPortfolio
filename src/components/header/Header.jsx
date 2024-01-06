@@ -68,7 +68,8 @@ const Header = () => {
                 type: "spring",
                 stiffness: 400,
                 damping: 40,
-            }
+            },
+            
         }
     }
     return (
@@ -161,7 +162,7 @@ const Header = () => {
             //      </div>
             // </div>
             <motion.div className="sidebar" animate={ open ? "open" : "closed"}>
-                <motion.div className="bg" variants={variants}>
+                <motion.div className="nav" variants={variants}>
                     <Links />
                 </motion.div>
                 <ToggleButton setOpen={setOpen}/>

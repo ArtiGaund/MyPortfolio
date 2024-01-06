@@ -20,6 +20,9 @@ import CompletedProjectCard from "./cards/CompletedProjectCard";
 import Services from "./home/services/Services.jsx";
 import ServiceCard from "./cards/serviceCard/ServiceCard.jsx";
 import ProjectSection from "./home/projectSection/ProjectSection.jsx";
+import ProjectCard from "./cards/projectCard/ProjectCard.jsx";
+import AnimatedText from "./animation/AnimatedText.jsx";
+
 
 export {
     Header,
@@ -44,4 +47,6 @@ export {
     Services,
     ServiceCard,
     ProjectSection,
+    ProjectCard,
+    AnimatedText,
 }

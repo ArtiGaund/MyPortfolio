@@ -1,6 +1,9 @@
 import React from 'react';
 // import "../../../App.css"
 import "./heroSection.scss"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { motion } from "framer-motion"
 
 
@@ -18,7 +21,19 @@ const HeroSection = () => {
             className='hero-content'
             transition={{ duration: 0.5}}
             >
-                <motion.div className='heading'>Heading</motion.div>
+                <motion.div
+                initial={{ x: -1000}}
+                animate={{ x: 0}}
+                transition={{
+                    duration: 2,
+                    delay: 0.2,
+                }}
+                // whileHover={{
+                //     scale: 1.1,
+                //     opacity: 0.8,
+                // }}
+                className='heading'
+                >Heading</motion.div>
                 <motion.div
                 className='content'
                 >
@@ -34,8 +49,12 @@ const HeroSection = () => {
                     </motion.div>
                 </motion.div>
                 <motion.div className='media'>
-                    {/* <FontAwesomeIcon icon="fa-brands fa-linkedin-in" /> */}
-                    Social Icons
+                    <div className='media-icons'>
+                        <FontAwesomeIcon icon={faGithub} className='w-[30px] h-[30px] p-3'/>
+                    </div>
+                    <div className='media-icons'>
+                        <FontAwesomeIcon icon={faLinkedin} className='w-[30px] h-[30px] p-3'/>
+                    </div>
                 </motion.div>
                 </motion.div>
             <motion.div
