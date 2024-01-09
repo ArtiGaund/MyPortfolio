@@ -21,7 +21,10 @@ import Services from "./home/services/Services.jsx";
 import ServiceCard from "./cards/serviceCard/ServiceCard.jsx";
 import ProjectSection from "./home/projectSection/ProjectSection.jsx";
 import ProjectCard from "./cards/projectCard/ProjectCard.jsx";
-import AnimatedText from "./animation/AnimatedText.jsx";
+import AnimatedText from "./animation/animatedText/AnimatedText.jsx"
+import GradientBackground from "./gradientBackground/GradientBackground.jsx";
+import AnimatedTitle from "./animation/animatedTitle/AnimatedTitle.jsx";
+import FullCard from "./cards/fullCard/FullCard.jsx";
 
 
 export {
@@ -49,4 +52,7 @@ export {
     ProjectSection,
     ProjectCard,
     AnimatedText,
+    GradientBackground,
+    AnimatedTitle,
+    FullCard,
 }

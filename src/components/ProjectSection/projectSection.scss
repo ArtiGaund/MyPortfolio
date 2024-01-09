@@ -1,0 +1,29 @@
+.completed-project-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 2rem;
+}
+
+.completed-project-section-title{
+    display: flex;
+    font-size: 2rem;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; //not working
+    align-items: center;
+    flex-direction: column;
+   
+    h1{
+        margin-bottom: 1rem;     
+    }
+    .break{
+        width: 29%;
+        height: 2px;
+        background: #fff;
+    }
+}
+.project-cards{
+    display: flex;
+    justify-content: center;
+    margin: 5rem;
+}

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { motion } from "framer-motion"
-
+import { GradientBackground, AnimatedTitle } from "../../index"
 
 const HeroSection = () => {
     return (
@@ -15,12 +15,25 @@ const HeroSection = () => {
         // initial={{ opacity: 0}}
         // transition={{ ease: "easeOut", duration: 2}}
         className='hero-container'
+        // animate={{
+        //     backdropFilter: "blur(5px)",
+        //     background: [
+        //         "linear-gradient(to right, #660c31, #3f0f4e)",   
+        //         "linear-gradient(to right, #3E3838, #1C1C1C)",
+        //         "linear-gradient(to right, #4C4343, #272727)",
+        //         "linear-gradient(to right, #660c31, #3f0f4e)"
+        //       ],
+        //     backgroundSize: "400% 400%",
+        //     animation: "colorChange 10s ease-in-out infinite"
+        // }}
         // viewport={{ once: true}}
         >
             <motion.div
             className='hero-content'
             transition={{ duration: 0.5}}
+           
             >
+                
                 <motion.div
                 initial={{ x: -1000}}
                 animate={{ x: 0}}
@@ -37,7 +50,7 @@ const HeroSection = () => {
                 <motion.div
                 className='content'
                 >
-                    <h1>Hi, I'm Arti Gaund</h1>
+                    <AnimatedTitle text={"Hi, I'm Arti Gaund"} />
                     <motion.div
                         initial={{ x: -100 }}
                         animate={{ x: 0 }}

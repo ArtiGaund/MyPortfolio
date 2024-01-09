@@ -1,19 +1,11 @@
-html{
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-}
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "DM Sans", sans-serif;
-}
-body{
-    background-color: #0c0c1d;
-    color: lightgrey;
-}
-section{
-    height: 100vh;
-    scroll-snap-align: center;
-}
+// body{
+//     background-color: #0c0c1d;
+//     color: lightgrey;
+// }
+// section{
+//     height: 100vh;
+//     scroll-snap-align: center;
+//     // display: flex;
+//     // padding: 5rem;
+// }

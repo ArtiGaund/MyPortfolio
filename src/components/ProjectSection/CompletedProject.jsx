@@ -1,11 +1,18 @@
 import React from 'react';
-import CompletedProjectCard from '../cards/CompletedProjectCard';
+import { FullCard } from "../index"
+import "./projectSection.scss"
 
 const CompletedProject = () => {
     return (
-        <div className="text-white">
-            <div className="mb-6">Completed Project Section</div>
-            <CompletedProjectCard />
+        <div className="completed-project-section">
+            <div className="completed-project-section-title">
+                <h1>Completed Project Case Study</h1>
+                <div class="break"></div>
+            </div>
+            
+           <div className="project-cards">
+                <FullCard />
+           </div>
         </div>
     );
 };

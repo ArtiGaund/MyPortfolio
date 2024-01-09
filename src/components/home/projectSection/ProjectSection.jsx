@@ -1,3 +1,6 @@
+/* This code is a React component called `ProjectSection`. It imports the necessary dependencies from
+the `react` and `framer-motion` libraries. It also imports the `ProjectCard` component from the
+`../../index` file and the styles from the `projectSection.scss` file. */
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ProjectCard } from "../../index"

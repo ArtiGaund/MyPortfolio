@@ -1,3 +1,5 @@
+/* This code is a React component called "Services". It imports various modules and components from
+external libraries and files. */
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from "react-intersection-observer";

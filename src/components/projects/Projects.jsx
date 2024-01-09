@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { OnGoingProject, CompletedProjectCard } from '../index'
+import { OnGoingProject, CompletedProjectCard, CompletedProject } from '../index'
 
 const Projects = () => {
     const tabs = [
@@ -57,8 +57,10 @@ const Projects = () => {
                 </div>
             </div>
             */}
-            <section>OnGoing Projects</section>
-            <section>Completed Projects</section>
+            {/* <section>OnGoing Projects</section> */}
+            <section>
+                <CompletedProject />
+            </section>
         </div>
     );
 };

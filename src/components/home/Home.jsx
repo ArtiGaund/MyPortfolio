@@ -1,3 +1,8 @@
+/**
+ * The Home component is a React functional component that renders the HeroSection, SkillsSection,
+ * Services, and ProjectSection components, and applies animations using the framer-motion library.
+ * @returns The Home component is returning a JSX element.
+ */
 import React, { useCallback } from "react";
 import { HeroSection, SkillsSection, Services, ProjectSection } from '../index'
 import backgroundImage from '../../images/backgroundImage.jpg'
@@ -24,9 +29,14 @@ const Home = () => {
         //          </div>
         //     </div>
         //  </div>
+       /* The code snippet is using the framer-motion library to apply animations to the different
+       sections of the Home component. */
         <motion.div>
           <section>
+          
             <motion.div 
+            /* The `initial={{ opacity: 0, y: -50 }}` is setting the initial state of the animation for
+            the component. */
             initial={{ opacity: 0, y: -50 }}
             whileInView={{ opacity: 1, y: 0}}
             viewport={{ once: true}}
