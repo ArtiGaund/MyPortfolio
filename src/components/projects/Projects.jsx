@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { OnGoingProject, CompletedProjectCard, CompletedProject } from '../index'
+import { OnGoingProject, CompletedProject } from '../index'
 
 const Projects = () => {
     const tabs = [

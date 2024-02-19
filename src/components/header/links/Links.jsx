@@ -50,7 +50,7 @@ const Links = () => {
            {/* {items.map((item) => (
             <a href={`#${item}`} key={item}>{item}</a>
            ))} */}
-           <div className='nav-links-container'>
+           <div className='nav-links-container rounded-3xl'>
            <ul className="pt-6 relative">
                {Menus.map((Menu, index) => (
                 <div className='nav-links-item' key={index}>

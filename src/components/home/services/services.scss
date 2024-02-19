@@ -1,7 +1,10 @@
 .services{
-    justify-content: center;
-    text-align: center;
+    // justify-content: center;
+    // text-align: center;
     margin: 10rem;
+}
+.services-heading-details{
+    margin-left: 5rem;
 }
 
 .services-cards{
@@ -31,4 +34,26 @@
     .service-cards-grid {
       grid-template-columns: 1fr;
     }
+  }
+  // section{
+  //   padding: 50px 0;
+  // }
+  #horizontal{
+    padding: 100px 0;
+  }
+  .horizontal_content{
+    display: flex;
+  }
+  .horizontal_item{
+    border: 1px solid #efefef;
+    padding: 200px 150px;
+  }
+  .horizontal_item:not(:last-child){
+    margin-right: 50px;
+  }
+  .horizontal_num{
+    font-size: 80px;
+    font-weight: 900;
+    font-stretch: condensed;
+    color: #ff98a2;
   }

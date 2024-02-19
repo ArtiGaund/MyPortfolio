@@ -36,9 +36,7 @@ function App() {
 
   return (
     <>
-      {/* <div className='flex flex-row h-screen overflow-hidden'> */}
           <Header/>
-          {/* <div className='text-2xl font-semibold flex-1 h-screen overflow-y-auto'> */}
             <AnimatePresence>
               <main>
                 {loading ? <h1>Loading...</h1>:  <Outlet />}

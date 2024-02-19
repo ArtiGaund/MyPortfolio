@@ -16,17 +16,17 @@ import ExperienceModal from "./modals/ExperienceModal";
 import OnGoingProject from "./ProjectSection/OnGoingProject";
 import CompletedProject from "./ProjectSection/CompletedProject";
 import AddTechForm from "./skills/AddTechForm";
-import CompletedProjectCard from "./cards/CompletedProjectCard";
 import Services from "./home/services/Services.jsx";
 import ServiceCard from "./cards/serviceCard/ServiceCard.jsx";
 import ProjectSection from "./home/projectSection/ProjectSection.jsx";
 import ProjectCard from "./cards/projectCard/ProjectCard.jsx";
 import AnimatedText from "./animation/animatedText/AnimatedText.jsx"
-import GradientBackground from "./gradientBackground/GradientBackground.jsx";
 import AnimatedTitle from "./animation/animatedTitle/AnimatedTitle.jsx";
 import FullCard from "./cards/fullCard/FullCard.jsx";
-
-
+import MediumCard from "./cards/mediumCard/MediumCard.jsx";
+import SmallCard from "./cards/smallCard/SmallCard.jsx";
+import MeshGradientRenderer from "./home/heroSection/meshGradientRenderer/MeshGradientRenderer.jsx";
+import SmoothScrollingWrapper from "./smoothScrollingWrapper/SmoothScrollingWrapper.jsx";
 export {
     Header,
     Container,
@@ -46,13 +46,15 @@ export {
     OnGoingProject,
     CompletedProject,
     AddTechForm,
-    CompletedProjectCard,
     Services,
     ServiceCard,
     ProjectSection,
     ProjectCard,
     AnimatedText,
-    GradientBackground,
     AnimatedTitle,
     FullCard,
+    MediumCard,
+    SmallCard,
+    MeshGradientRenderer,
+    SmoothScrollingWrapper,
 }

@@ -5,7 +5,7 @@
     justify-content: center;
     background-color: white;
     color: black;
-    z-index: 20;
+    z-index: 10;
     position: absolute;
 
     // its the nav bar
@@ -27,10 +27,12 @@
             align-items: center;
             justify-content: center;
             gap: 20px;
-            z-index: 20;
+            z-index: 1;
+            // background-color: red;
 
             .nav-links-container
             {
+                // margin: 4rem;
                 display: flex;
                 background-color: white;
                 width: 5rem;
@@ -38,17 +40,20 @@
                 padding: 0;
                 justify-content: center;
                 justify-items: center;
-                // align-items: center;
-                border-radius: 5%;
+                align-items: center;
+                // border-radius: 10%;
+                flex-direction: column;
+                gap: 2rem;
                
                 .nav-links-item{
                     background-color: black;
                     height: 3rem;
                     width: 3rem;
                     border-radius: 20%;
-                    // display: flex;
-                    // justify-content: center;
-                    // justify-items: center;
+                    display: flex;
+                    justify-content: center;
+                    margin: 1rem;
+                    justify-items: center;
                     align-items: center;
                     a{
                         font-size: 20rem;
@@ -66,8 +71,8 @@
         height: 60px;
         border-radius: 60%;
         position: fixed;
-        top: 27px;
-        left: 39px;
+        top: 3rem;
+        left: 3rem;
         background-color: white;
         border: none;
         cursor: pointer;

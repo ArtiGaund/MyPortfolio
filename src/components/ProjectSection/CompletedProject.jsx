@@ -1,5 +1,5 @@
 import React from 'react';
-import { FullCard } from "../index"
+import { FullCard, MediumCard, SmallCard } from "../index"
 import "./projectSection.scss"
 
 const CompletedProject = () => {
@@ -11,8 +11,20 @@ const CompletedProject = () => {
             </div>
             
            <div className="project-cards">
-                <FullCard />
+                <div className="section1">
+                    <FullCard />
+                </div>
+                <div className="section2">
+                    {/* <div className="section2-parts"> */}
+                        <MediumCard />
+                        {/* <MediumCard /> */}
+                    {/* </div> */}
+                </div>
+                <div className="section3">
+                    <SmallCard />
+                </div>
            </div>
+           
         </div>
     );
 };

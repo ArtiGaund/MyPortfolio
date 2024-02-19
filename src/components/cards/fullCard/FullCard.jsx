@@ -1,5 +1,9 @@
 import React from 'react';
 import "./fullCard.scss"
+import image from "../../../assets/images/jk_qatar22.jpg"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 const FullCard = () => {
     return (
@@ -18,8 +22,28 @@ const FullCard = () => {
                     </span>
                 </div>
                 <div className='card-details-bottom'>
-                    <div className='card-details-button'>View Project</div>
+                    <div className='button'>
+                        <div className='card-details-button'>View Project</div>
+                        <div className="break"></div>
+                    </div>
+                    
+                    <div className='github-link'>
+                        <a href='https://github.com/ArtiGaund'>
+                            <FontAwesomeIcon icon={faGithub} className='w-[30px] h-[30px] p-3'/>
+                        </a>
+                        
+                    </div>
                 </div>
+           </div>
+           <div className='card-image'>
+                <div className='preview'>
+                    <a href='#'>
+                        <FontAwesomeIcon icon={faEye} className='w-[30px] h-[30px] p-3 text-white'/>
+                    </a>
+                </div>
+                <img className="w-full" src={image} alt='image'/>
+                
+                
            </div>
         </div>
     );

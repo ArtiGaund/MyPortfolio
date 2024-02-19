@@ -5,33 +5,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { motion } from "framer-motion"
-import { GradientBackground, AnimatedTitle } from "../../index"
+import { AnimatedTitle, MeshGradientRenderer } from "../../index"
 
 const HeroSection = () => {
     return (
         <motion.div
-        layout
-        // animate={{ opacity: 1}}
-        // initial={{ opacity: 0}}
-        // transition={{ ease: "easeOut", duration: 2}}
         className='hero-container'
-        // animate={{
-        //     backdropFilter: "blur(5px)",
-        //     background: [
-        //         "linear-gradient(to right, #660c31, #3f0f4e)",   
-        //         "linear-gradient(to right, #3E3838, #1C1C1C)",
-        //         "linear-gradient(to right, #4C4343, #272727)",
-        //         "linear-gradient(to right, #660c31, #3f0f4e)"
-        //       ],
-        //     backgroundSize: "400% 400%",
-        //     animation: "colorChange 10s ease-in-out infinite"
-        // }}
-        // viewport={{ once: true}}
         >
+            <div className="gradient-container">
+                <MeshGradientRenderer 
+                
+                >
+                    <div>Hello</div>
+                </MeshGradientRenderer>
+            </div>
             <motion.div
             className='hero-content'
             transition={{ duration: 0.5}}
-           
             >
                 
                 <motion.div
@@ -69,11 +59,12 @@ const HeroSection = () => {
                         <FontAwesomeIcon icon={faLinkedin} className='w-[30px] h-[30px] p-3'/>
                     </div>
                 </motion.div>
-                </motion.div>
+            </motion.div>
             <motion.div
             className='hero-image'
             transition={{ duration: 0.5}}
             >Animation object</motion.div>
+            
         </motion.div>
     );
 };

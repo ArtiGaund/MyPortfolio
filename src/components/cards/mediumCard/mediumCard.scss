@@ -1,21 +1,20 @@
-.card-container{
+.medium-card-container{
     position: relative;
-    width: 65rem;
-    height: 25rem;
-    // background-color: #8d0909;
-    display: flex;
-    flex-direction: row;
+    width: 28rem;
+    height: 32rem;
+    background-color: red;
+    
 }
-
-.card-details{
+.medium-card-details{
     position: absolute;
-    bottom: 0;
     left: 0;
+    bottom: -5rem;
     width: 20rem;
     height: 27rem;
     background-color: #fff;
+   
 }
-.card-title{
+.medium-card-title{
     display: flex;
     align-items: center;
     margin-top: 2rem;
@@ -26,18 +25,18 @@
         font-weight: bolder;
         margin: 2rem;
     }
-    .break{
+    .medium-break{
         width: 55%;
         height: 2px;
         background: #070000;
         margin: 1rem;
     }
 }
-.card-techs{
+.medium-card-techs{
     display: flex;
     justify-content: center;
     gap: 1rem;
-    .card-tech{
+    .medium-card-tech{
         background-color: gray;
         display: inline-block;
         border-radius: 2rem;
@@ -45,44 +44,48 @@
     }
 }
 
-.card-details-bottom{
+.medium-card-details-bottom{
     position: absolute;
     bottom: 0;
     margin: 2rem;
     display: flex;
     flex-direction: row;
     gap: 4rem;
-    .button{
+    .medium-button{
         margin: 1rem;
     }
-    .card-details-button{
+    .medium-card-details-button{
         color: black;
         font-size: 1rem;
         font-weight: bold;
     }
-    .break{
+    .medium-break{
         width: 100%;
         height: 1px;
         background: #070000;
         // margin: 1rem;
     }
 }
-.card-image{
-    position: absolute;
-    width: 45rem;
-    height: 27rem;
+.medium-card-image{
+    position: relative;
+    width: 28rem;
+    height: 32rem;
     // background-color: yellow;
-    z-index: 2;
+    // z-index: 2;
     top: 0;
     right: 0;
     overflow: hidden;
+    inset: 0;
     // border: 2px solid pink;
 }
-.github-link{
+.medium-card-image img{
+    object-fit: cover;
+}
+.medium-github-link{
     color: black;
     cursor: pointer;
 }
-.preview{
+.medium-preview{
     position: absolute;
     top: 0;
     right: 0;

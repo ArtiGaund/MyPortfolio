@@ -24,6 +24,24 @@
 }
 .project-cards{
     display: flex;
-    justify-content: center;
-    margin: 5rem;
+    // justify-content: center;
+    align-items: center;
+    // margin: 5rem;
+    flex-direction: column;
+    gap: 3rem;
+
+    .section1{
+        margin: 2rem;
+    }
+
+    .section2{
+        margin: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .section3{
+        margin: 2rem;
+    }
 }

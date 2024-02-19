@@ -1,84 +1,89 @@
 
 // Laptop screen
-.hero-container{
-    width: 80%;
-    height: 80%;
-    // background-color: rgb(22, 22, 26);
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   position: relative;
-    margin: 5%;
-    margin-left: 10%;
-    justify-content: center;
+*{
+    margin: 0;
     padding: 0;
+}
+.hero-container{
+    
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    // margin-left: 15%;
-    border-radius: 30px;
-    filter: drop-shadow(2px 2px 2px white);
-    column-gap: 20px;
-    overflow: hidden;
-    // it give gradient effect in the hero section
-    background: linear-gradient(to bottom, rgba(155, 89, 182, 1.0), rgba(41, 128, 185, 1.0));
+    }
+    .gradient-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1; 
+      }
+      .hero-content {
+        position: relative;
+        display: flex;
+        z-index: 1;
+        width: 50%;
+        height: 100%;
+        margin: 10rem;
+        margin-top: 5rem;
+        //  padding: 15rem;
+        justify-content: center;
+        // background-color: yellow;
+        flex-direction: column;
+      }
+.heading{
+    font-size: larger;
+    margin-bottom: 80px;
+    margin-left: 15px;
+}
+.content{
+    margin: 10px;
+    font-size:x-large;
 
-    .hero-content,
+   
+}
+h1{
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+.media{
+    margin: 60px;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    
+}
+.media-icons{
+    width: 60px;
+    height: 60px;
+    background-color: rgba($color: #1010166b, $alpha: 1.0);
+    filter: drop-shadow(2px 2px 2px white);
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.hero-content,
     .hero-image{
         box-sizing: border-box;
         padding: 0;
         width: 100%;
         position: relative;
-    }
-    .hero-content{
        
-        grid-column: 1 / 2;
-        grid-row: 1 / 2;
-        margin-left: 3rem;
-        overflow: hidden;
-
-        .heading{
-            font-size: larger;
-            margin-bottom: 80px;
-            margin-left: 15px;
-        }
-
-        .content{
-            margin: 10px;
-            font-size:x-large;
-
-            h1{
-                font-size: 2.5rem;
-                margin-bottom: 15px;
-            }
-        }
-
-        .media{
-            margin: 60px;
-            display: flex;
-            flex-direction: row;
-            gap: 2rem;
-            .media-icons{
-                width: 60px;
-                height: 60px;
-                background-color: rgba($color: #1010166b, $alpha: 1.0);
-                filter: drop-shadow(2px 2px 2px white);
-                display: flex;
-                justify-content: center;
-                border-radius: 10px;
-                cursor: pointer;
-            }
-        }
     }
     .hero-image {
         grid-column: 2 / 3;
         grid-row: 1 / 2;
       }
-}
-
-
 // Tablet screens
 @media (max-width: 768px){
     .hero-container{
         width: 90%;
-        position: absolute;
+        // position: absolute;
         margin: 10%;
     }
 }
@@ -87,7 +92,7 @@
 @media (max-width: 480px){
     .hero-container{
         width: 80%;
-        position: absolute;
+        // position: absolute;
         margin: 10%;
         margin-top: 25%;
     }
